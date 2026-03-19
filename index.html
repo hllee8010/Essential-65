@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>천일문 독해 에센셜 65 | 에듀케레 분석지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243259;
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --cream: #faf8f3;
+    --white: #ffffff;
+    --gray-50: #f8f9fa;
+    --gray-100: #f0f1f3;
+    --gray-200: #e0e2e7;
+    --gray-400: #9098a9;
+    --gray-600: #5a6172;
+    --gray-800: #2d3245;
+    --green-bg: #e8f5e9;
+    --green-dark: #2e7d32;
+    --blue-light: #e8eef8;
+    --blue-mid: #2E75B6;
+    --yellow-bg: #fffde7;
+    --yellow-dark: #7F6000;
+    --red-light: #fdecea;
+    --red: #c0392b;
+    --correct-bg: #e8f5e9;
+    --correct: #2e7d32;
+    --wrong-bg: #fdecea;
+    --wrong: #c0392b;
+    --tab-active-bg: var(--navy);
+    --tab-active-text: var(--gold);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--cream);
+    color: var(--gray-800);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 3px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header .brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+  .site-header .sep { color: var(--gold); opacity: 0.4; font-size: 1.2rem; }
+  .site-header .passage-title {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  /* ── TAB NAV ── */
+  .tab-nav {
+    background: var(--navy-light);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 2px solid var(--gold);
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex-shrink: 0;
+    padding: 12px 20px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: var(--gold-light); }
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom: 3px solid var(--gold);
+    background: rgba(200,168,75,0.08);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .tab-content { display: none; padding: 32px; max-width: 880px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+    border-left: 4px solid var(--gold);
+    padding-left: 14px;
+  }
+  .section-subtitle {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin-bottom: 28px;
+    padding-left: 18px;
+  }
+
+  /* ── PASSAGE BOX ── */
+  .passage-box {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-left: 5px solid var(--blue-mid);
+    border-radius: 4px;
+    padding: 28px 32px;
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    line-height: 2.0;
+    color: var(--gray-800);
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px rgba(26,39,68,0.06);
+  }
+  .passage-box .sent-num {
+    color: var(--blue-mid);
+    font-weight: 700;
+    font-size: 14px;
+    vertical-align: super;
+    margin-right: 2px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  /* ── SENTENCE ANALYSIS ── */
+  .sent-block {
+    margin-bottom: 28px;
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+  }
+  .sent-eng {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--blue-mid);
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .sent-num-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .slash-reading {
+    background: var(--blue-light);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.83rem;
+    line-height: 1.9;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+  .slash-eng { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--gray-600); }
+  .slash-kor { color: var(--navy); font-weight: 500; font-size: 0.83rem; }
+  .grammar-list { display: flex; flex-direction: column; gap: 6px; }
+  .grammar-item {
+    background: var(--yellow-bg);
+    border-left: 3px solid #f9a825;
+    border-radius: 3px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  .grammar-item .g-label { color: var(--yellow-dark); font-weight: 700; }
+  .grammar-item .g-example { color: var(--gray-600); font-family: 'EB Garamond', serif; font-size: 13px; }
+  .grammar-item .g-point { color: var(--navy); font-weight: 600; }
+
+  /* ── VOCABULARY ── */
+  .vocab-grid { display: flex; flex-direction: column; gap: 10px; }
+  .vocab-item {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .vocab-word {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    min-width: 130px;
+  }
+  .vocab-meaning { font-size: 0.88rem; color: var(--gray-800); min-width: 120px; }
+  .vocab-pos {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    color: var(--blue-mid);
+    font-style: italic;
+    min-width: 60px;
+  }
+  .vocab-deriv { font-size: 0.78rem; color: var(--gray-600); }
+  .vocab-bullet { color: var(--gold); font-weight: 700; margin-right: 4px; }
+
+  /* ── KNOWLEDGE PLUS ── */
+  .knowledge-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .knowledge-card h3 {
+    font-size: 1rem;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .knowledge-card h3::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .knowledge-card p, .knowledge-card li {
+    font-size: 0.87rem;
+    line-height: 1.9;
+    color: var(--gray-600);
+  }
+  .knowledge-card ul { padding-left: 18px; margin-top: 6px; }
+  .knowledge-card .highlight {
+    background: var(--yellow-bg);
+    border-left: 3px solid #f9a825;
+    border-radius: 3px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    font-size: 0.83rem;
+    color: var(--yellow-dark);
+    font-weight: 600;
+  }
+
+  /* ── TRANSLATION ── */
+  .translation-box {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 28px 32px;
+    font-size: 1rem;
+    line-height: 2.3;
+    color: var(--gray-800);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  /* ── TOPIC ── */
+  .topic-grid { display: grid; gap: 16px; }
+  .topic-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .topic-card-header {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    letter-spacing: 0.05em;
+  }
+  .topic-card-body { padding: 16px 20px; font-size: 0.92rem; line-height: 1.9; }
+  .flow-steps { display: flex; gap: 0; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step {
+    background: var(--blue-light);
+    border: 1px solid var(--gray-200);
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    color: var(--navy);
+    position: relative;
+    flex: 1;
+    min-width: 130px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .flow-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 16px;
+    z-index: 1;
+  }
+
+  /* ── QUIZ ── */
+  .quiz-block {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .quiz-num {
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 3px 8px;
+  }
+  .quiz-type {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .quiz-question {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--gray-800);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .quiz-passage-ref {
+    background: var(--gray-50);
+    border-left: 3px solid var(--gray-200);
+    padding: 10px 14px;
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    border-radius: 0 4px 4px 0;
+    color: var(--gray-600);
+  }
+  .blank { display: inline-block; border-bottom: 2px solid var(--navy); min-width: 90px; text-align: center; }
+
+  /* MC OPTIONS */
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .opt-btn {
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 11px 16px;
+    font-size: 0.87rem;
+    color: var(--gray-800);
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.15s;
+    line-height: 1.6;
+  }
+  .opt-btn:hover { border-color: var(--gold); background: #fffdf5; }
+  .opt-btn.correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); font-weight: 600; }
+  .opt-btn.wrong { background: var(--wrong-bg); border-color: var(--wrong); color: var(--wrong); }
+  .opt-btn.revealed-correct { background: var(--correct-bg); border-color: var(--correct); color: var(--correct); font-weight: 600; }
+  .opt-btn:disabled { cursor: default; }
+
+  /* FEEDBACK */
+  .feedback {
+    display: none;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.83rem;
+    line-height: 1.7;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct-fb { background: var(--correct-bg); color: var(--correct); }
+  .feedback.wrong-fb { background: var(--wrong-bg); color: var(--wrong); }
+
+  /* RESET BTN */
+  .reset-btn {
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid var(--gray-200);
+    border-radius: 4px;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: all 0.15s;
+  }
+  .reset-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SUBJECTIVE QUIZ */
+  .subj-block {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .subj-condition {
+    background: var(--blue-light);
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    color: var(--navy);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .subj-input-area {
+    width: 100%;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.88rem;
+    resize: vertical;
+    min-height: 80px;
+    color: var(--gray-800);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .subj-input-area:focus { border-color: var(--gold); }
+  .toggle-answer-btn {
+    margin-top: 10px;
+    background: var(--navy);
+    color: var(--gold);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    transition: background 0.15s;
+  }
+  .toggle-answer-btn:hover { background: var(--navy-light); }
+  .model-answer {
+    display: none;
+    margin-top: 12px;
+    background: var(--green-bg);
+    border-left: 4px solid var(--green-dark);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 0.87rem;
+    color: var(--green-dark);
+    line-height: 1.8;
+  }
+  .model-answer.show { display: block; }
+  .model-answer strong { font-weight: 700; }
+
+  /* PROGRESS */
+  .progress-bar-wrap {
+    background: var(--gray-100);
+    border-radius: 999px;
+    height: 6px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), var(--blue-mid));
+    border-radius: 999px;
+    transition: width 0.4s;
+  }
+
+  /* FOOTER */
+  .page-footer {
+    text-align: center;
+    padding: 28px;
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    border-top: 1px solid var(--gray-200);
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="brand">에듀케레 영수학원의 분석지</span>
+  <span class="sep">|</span>
+  <span class="passage-title">천일문 독해 에센셜 65 — Questions vs. Answers</span>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('tab-passage')">① 전문</button>
+  <button class="tab-btn" onclick="showTab('tab-analysis')">② 문장분석</button>
+  <button class="tab-btn" onclick="showTab('tab-vocab')">③ 핵심단어</button>
+  <button class="tab-btn" onclick="showTab('tab-knowledge')">④ 배경지식</button>
+  <button class="tab-btn" onclick="showTab('tab-translation')">⑤ 전문해석</button>
+  <button class="tab-btn" onclick="showTab('tab-quiz')">⑥ 변형문제</button>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     ① 전문
+════════════════════════════════════════════ -->
+<div id="tab-passage" class="tab-content active">
+  <h2 class="section-title">전문</h2>
+  <p class="section-subtitle">천일문 독해 에센셜 65 · Questions vs. Answers</p>
+  <div class="passage-box">
+    <span class="sent-num">①</span>Have you ever known someone who, no matter what the question is, always has an answer?
+    <span class="sent-num">②</span>The mailman, Cliff Clavin of the sitcom <em>Cheers</em>, comes to mind here.
+    <span class="sent-num">③</span>On the show, Cliff appeared to be utterly incapable of saying "I don't know."
+    <span class="sent-num">④</span>For Cliff and for the rest of us in real life, this obsession with providing answers is connected to difficulty in learning, as we have, in our society, whole systems for the object of qualifying answers.
+    <span class="sent-num">⑤</span>These systems are integrated throughout our entire educational process as grading.
+    <span class="sent-num">⑥</span>What if, on the other hand, we had a system of qualifying the best questions?
+    <span class="sent-num">⑦</span>What if we had teachers and leaders who convened sessions in which questions would be listened to and those deemed "best" would be acknowledged and acted upon?
+    <span class="sent-num">⑧</span>Would this lead to a new opening for learning, to a context in which learning would flourish?
+    <span class="sent-num">⑨</span>I say it would.
+    <span class="sent-num">⑩</span>But we'll never move in that direction as long as we think learning and knowing have to do primarily with "having the answers."
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ② 문장분석
+════════════════════════════════════════════ -->
+<div id="tab-analysis" class="tab-content">
+  <h2 class="section-title">문장분석</h2>
+  <p class="section-subtitle">전체 10문장 · 슬래시 직독직해 + 문법 포인트</p>
+
+  <!-- S1 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">①</span>
+      Have you ever known someone / who, no matter what the question is, / always has an answer?
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">Have you ever known someone / who, no matter what the question is, / always has an answer?</div>
+      <div class="slash-kor">당신은 누군가를 알아본 적 있는가 / 어떤 질문이든 상관없이 / 항상 답을 가지고 있는 사람을?</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 현재완료 경험 (Have + p.p.)</span></div>
+        <div class="g-example">▶ "Have you ever <strong>known</strong> someone" — ever와 함께 쓰여 '~한 적이 있다'는 경험 의미</div>
+        <div><span class="g-point">★ 수능 어법: ever / never / before 등과 결합되는 현재완료 경험 용법 식별</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 관계대명사 who (계속적/한정적 용법)</span></div>
+        <div class="g-example">▶ "someone <strong>who</strong> … always has an answer" — someone을 선행사로 수식하는 한정적 관계절</div>
+        <div><span class="g-point">★ 선행사가 사람이면 who, 사물이면 which — 수능 어법 단골</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 복합관계형용사 no matter what</span></div>
+        <div class="g-example">▶ "no matter what the question is" = whatever the question is — 양보의 부사절</div>
+        <div><span class="g-point">★ no matter what/who/when/how + S+V = whatever/whoever/whenever/however + S+V (수능 빈출 전환)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">②</span>
+      The mailman, Cliff Clavin / of the sitcom <em>Cheers</em>, / comes to mind here.
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">The mailman, Cliff Clavin / of the sitcom Cheers, / comes to mind here.</div>
+      <div class="slash-kor">그 우편배달부 Cliff Clavin이 / 시트콤 Cheers의 / 여기서 떠오른다.</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 동격 명사구 (Appositive)</span></div>
+        <div class="g-example">▶ "The mailman, <strong>Cliff Clavin</strong>" — 콤마로 앞 명사를 구체적으로 설명하는 동격 구조</div>
+        <div><span class="g-point">★ 동격 명사구는 주어 수에 영향을 주지 않음 → 동사는 원래 주어(The mailman)에 수일치</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 관용 표현: come to mind</span></div>
+        <div class="g-example">▶ "comes to mind" = '생각나다, 떠오르다'</div>
+        <div><span class="g-point">★ 빈칸 추론·어휘 문제에서 자주 등장하는 표현; 주어는 반드시 단수 취급</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">③</span>
+      On the show, / Cliff appeared to be / utterly incapable of saying / "I don't know."
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">On the show, / Cliff appeared to be / utterly incapable of saying / "I don't know."</div>
+      <div class="slash-kor">그 쇼에서 / Cliff는 ~처럼 보였다 / 완전히 할 수 없는 것처럼 / "모르겠어"라고 말하는 것을</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ appear + to부정사 (주어 중심 서술어)</span></div>
+        <div class="g-example">▶ "appeared <strong>to be</strong> utterly incapable" — 5형식 seem/appear + to-V 구조</div>
+        <div><span class="g-point">★ seem/appear + to-V vs. seem/appear + that절: 두 구조 전환 문제 수능 빈출</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ be incapable of + -ing (전치사 목적어)</span></div>
+        <div class="g-example">▶ "incapable of <strong>saying</strong>" — 전치사 of 뒤에 반드시 동명사(-ing)</div>
+        <div><span class="g-point">★ 어법: 전치사 뒤 to부정사 불가 → of saying (O) / of to say (X)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">④</span>
+      For Cliff and for the rest of us in real life, / this obsession with providing answers / is connected to difficulty in learning, / as we have, in our society, / whole systems for the object of qualifying answers.
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">For Cliff and for the rest of us in real life, / this obsession with providing answers / is connected to difficulty in learning, / as we have, in our society, / whole systems for the object of qualifying answers.</div>
+      <div class="slash-kor">Cliff와 현실의 우리 모두에게 / 답을 제공하려는 이 집착은 / 학습의 어려움과 연결되어 있다 / 왜냐하면 우리는 우리 사회에서 / 답을 평가하기 위한 전체적인 시스템을 갖고 있기 때문이다.</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 전치사구 삽입 (Parenthetical Insertion)</span></div>
+        <div class="g-example">▶ "we have, <strong>in our society</strong>, whole systems" — 삽입구를 제거하면 'we have whole systems'가 기본 문장</div>
+        <div><span class="g-point">★ 삽입구를 걷어내고 주어·동사·목적어를 파악하는 연습이 독해 속도를 높임</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 접속사 as (이유)</span></div>
+        <div class="g-example">▶ "as we have … whole systems" — because와 동의, 이유를 나타내는 종속접속사</div>
+        <div><span class="g-point">★ as의 다의성(시간·이유·비례·양보) — 문맥으로 구별하는 어휘 문제 다수 출제</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ obsession with + -ing (명사 + 전치사 + 동명사)</span></div>
+        <div class="g-example">▶ "obsession with <strong>providing</strong> answers" — 전치사 with 뒤에 동명사 사용</div>
+        <div><span class="g-point">★ 명사형 파생어(obsession←obsess) + 전치사 패턴은 어휘·어법 통합 문제에 자주 등장</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">⑤</span>
+      These systems / are integrated / throughout our entire educational process / as grading.
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">These systems / are integrated / throughout our entire educational process / as grading.</div>
+      <div class="slash-kor">이 시스템들은 / 통합되어 있다 / 우리의 전체 교육 과정 전반에 / 성적 평가로서.</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 수동태 (be + p.p.)</span></div>
+        <div class="g-example">▶ "are <strong>integrated</strong>" — '통합되다'라는 수동의 의미, 행위자가 생략됨</div>
+        <div><span class="g-point">★ 능동·수동 전환 어법 문제: 주어가 행위를 받으면 수동태 선택</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 전치사 throughout (전범위)</span></div>
+        <div class="g-example">▶ "throughout our entire educational process" — '~의 전반에 걸쳐'</div>
+        <div><span class="g-point">★ throughout vs. through 구별: throughout은 공간·시간 전체를 강조, through는 관통·경유</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S6 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">⑥</span>
+      What if, on the other hand, / we had a system / of qualifying the best questions?
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">What if, on the other hand, / we had a system / of qualifying the best questions?</div>
+      <div class="slash-kor">반면에, 만약 / 우리가 시스템을 갖고 있다면 / 최고의 질문을 평가하는?</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 가정법 과거 (What if + 과거동사)</span></div>
+        <div class="g-example">▶ "What if we <strong>had</strong> a system" — 현재 사실에 반대되는 상상; If we had …, we would …의 축약형</div>
+        <div><span class="g-point">★ What if 뒤 동사 시제로 가정법 현재(should+V) vs 과거(과거V) 구별 — 어법 핵심</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ of + 동명사 (명사 수식)</span></div>
+        <div class="g-example">▶ "a system <strong>of qualifying</strong> the best questions" — 전치사 of + 동명사로 system의 내용을 설명</div>
+        <div><span class="g-point">★ 명사 + of + -ing 패턴: 명사를 구체화하는 역할, 빈칸 추론에서 키워드 단서로 활용</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">⑦</span>
+      What if we had teachers and leaders / who convened sessions / in which questions would be listened to / and those deemed "best" / would be acknowledged and acted upon?
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">What if we had teachers and leaders / who convened sessions / in which questions would be listened to / and those deemed "best" / would be acknowledged and acted upon?</div>
+      <div class="slash-kor">만약 우리에게 교사와 지도자가 있다면 / 회의를 소집하는 / 그 회의에서 질문들이 경청되고 / "최고"로 여겨지는 것들이 / 인정되고 실행될?</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 관계대명사 who (주격)</span></div>
+        <div class="g-example">▶ "teachers and leaders <strong>who</strong> convened sessions" — 선행사(복수)에 수일치된 관계절</div>
+        <div><span class="g-point">★ 선행사가 복수면 관계절 내 동사도 복수: who convened (O)</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 관계대명사 in which (전치사 + 관계대명사)</span></div>
+        <div class="g-example">▶ "sessions <strong>in which</strong> questions would be listened to" = sessions where questions …</div>
+        <div><span class="g-point">★ 전치사+which는 where로 교체 가능; 단, 전치사를 관계절 끝에 놓을 때는 which만 가능</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 과거분사 수식 (deemed "best")</span></div>
+        <div class="g-example">▶ "those <strong>deemed</strong> 'best'" — those (= questions) which are deemed best의 축약; 수동 분사구</div>
+        <div><span class="g-point">★ 명사 뒤 과거분사 수식: 수식받는 명사와 분사 사이에 수동 관계 확인</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S8 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">⑧</span>
+      Would this lead to a new opening for learning, / to a context / in which learning would flourish?
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">Would this lead to a new opening for learning, / to a context / in which learning would flourish?</div>
+      <div class="slash-kor">이것이 학습을 위한 새로운 기회로 이어질까, / 하나의 맥락으로 / 학습이 번성할?</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 가정법 미래 (Would + V)</span></div>
+        <div class="g-example">▶ "Would this <strong>lead</strong> to" — 앞 문장 가정법의 귀결절을 의문문 형태로 제시</div>
+        <div><span class="g-point">★ 조동사 Would 의문문: 가정법 귀결 또는 정중한 요청 구별은 문맥으로 판단</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 관계대명사 in which (= where)</span></div>
+        <div class="g-example">▶ "a context <strong>in which</strong> learning would flourish" — 장소 선행사에 in which = where</div>
+        <div><span class="g-point">★ 같은 표현이 반복될 때 어법 문제 단골 — 전치사 선택(in/on/at + which) 주의</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S9 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">⑨</span>
+      I say it would.
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">I say it would.</div>
+      <div class="slash-kor">나는 그럴 것이라고 생각한다.</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 대동사 (Pro-form: would)</span></div>
+        <div class="g-example">▶ "I say it <strong>would</strong>" — would = would lead to … flourish를 대체하는 대동사</div>
+        <div><span class="g-point">★ 대동사 do/did/would 등은 앞 문장의 동사(구)를 대신함; 어휘·빈칸 문제에서 지시 대상 파악 필수</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S10 -->
+  <div class="sent-block">
+    <div class="sent-eng">
+      <span class="sent-num-badge">⑩</span>
+      But we'll never move in that direction / as long as we think / learning and knowing / have to do primarily with / "having the answers."
+    </div>
+    <div class="slash-reading">
+      <div class="slash-eng">But we'll never move in that direction / as long as we think / learning and knowing / have to do primarily with / "having the answers."</div>
+      <div class="slash-kor">그러나 우리는 그 방향으로 절대 나아가지 않을 것이다 / 우리가 생각하는 한 / 배움과 앎이 / 주로 관련이 있다고 / "답을 갖는 것"과.</div>
+    </div>
+    <div class="grammar-list">
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 조건 접속사 as long as (~하는 한)</span></div>
+        <div class="g-example">▶ "we'll never move … <strong>as long as</strong> we think" — 조건의 지속성을 나타내는 접속사</div>
+        <div><span class="g-point">★ as long as(조건) vs. as far as(범위·한도) 혼동 주의 — 문맥 판단 필수</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ have to do with (~와 관련이 있다)</span></div>
+        <div class="g-example">▶ "learning and knowing <strong>have to do</strong> primarily with 'having the answers'" — 관용 표현</div>
+        <div><span class="g-point">★ have to do with (관련 있다) vs. have to (의무) — 'to do with'의 to는 전치사임을 주의</span></div>
+      </div>
+      <div class="grammar-item">
+        <div><span class="g-label">◆ 동명사 주어 병렬 (learning and knowing)</span></div>
+        <div class="g-example">▶ "learning and knowing <strong>have</strong> to do" — 두 동명사가 하나의 주어처럼 묶여 복수 동사 사용</div>
+        <div><span class="g-point">★ A and B 주어는 일반적으로 복수 동사; 단, and로 연결된 동명사가 단일 개념이면 단수 가능</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ③ 핵심단어
+════════════════════════════════════════════ -->
+<div id="tab-vocab" class="tab-content">
+  <h2 class="section-title">핵심단어 및 표현</h2>
+  <p class="section-subtitle">수능·내신 빈출 어휘 및 숙어 14선</p>
+  <div class="vocab-grid">
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">obsession</span>
+      <span class="vocab-meaning">집착, 강박</span>
+      <span class="vocab-pos">n.</span>
+      <span class="vocab-deriv">obsess (v.), obsessive (adj.), obsessively (adv.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">incapable</span>
+      <span class="vocab-meaning">~을 할 수 없는, 무능한</span>
+      <span class="vocab-pos">adj.</span>
+      <span class="vocab-deriv">capable (adj.), capability (n.), incapability (n.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">utterly</span>
+      <span class="vocab-meaning">완전히, 전적으로</span>
+      <span class="vocab-pos">adv.</span>
+      <span class="vocab-deriv">utter (adj./v.), utterance (n.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">qualify</span>
+      <span class="vocab-meaning">평가하다; 자격을 부여하다</span>
+      <span class="vocab-pos">v.</span>
+      <span class="vocab-deriv">qualification (n.), qualified (adj.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">integrate</span>
+      <span class="vocab-meaning">통합하다, 결합시키다</span>
+      <span class="vocab-pos">v.</span>
+      <span class="vocab-deriv">integration (n.), integral (adj.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">convene</span>
+      <span class="vocab-meaning">(회의를) 소집하다, 모이다</span>
+      <span class="vocab-pos">v.</span>
+      <span class="vocab-deriv">convention (n.), conventional (adj.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">deem</span>
+      <span class="vocab-meaning">~로 여기다, 간주하다</span>
+      <span class="vocab-pos">v.</span>
+      <span class="vocab-deriv">— (파생어 없음)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">acknowledge</span>
+      <span class="vocab-meaning">인정하다, 감사하다</span>
+      <span class="vocab-pos">v.</span>
+      <span class="vocab-deriv">acknowledgment (n.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">flourish</span>
+      <span class="vocab-meaning">번성하다, 번창하다</span>
+      <span class="vocab-pos">v.</span>
+      <span class="vocab-deriv">flourishing (adj.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">primarily</span>
+      <span class="vocab-meaning">주로, 첫째로</span>
+      <span class="vocab-pos">adv.</span>
+      <span class="vocab-deriv">primary (adj.), prime (adj./n.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">come to mind</span>
+      <span class="vocab-meaning">생각나다, 떠오르다</span>
+      <span class="vocab-pos">idiom</span>
+      <span class="vocab-deriv">—</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">be connected to</span>
+      <span class="vocab-meaning">~와 연결되다, 관련이 있다</span>
+      <span class="vocab-pos">idiom</span>
+      <span class="vocab-deriv">connection (n.), connect (v.)</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">act upon</span>
+      <span class="vocab-meaning">~에 따라 행동하다, 실행하다</span>
+      <span class="vocab-pos">phr. v.</span>
+      <span class="vocab-deriv">—</span>
+    </div>
+
+    <div class="vocab-item">
+      <span class="vocab-bullet">◆</span>
+      <span class="vocab-word">have to do with</span>
+      <span class="vocab-meaning">~와 관련이 있다</span>
+      <span class="vocab-pos">idiom</span>
+      <span class="vocab-deriv">—</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ④ 배경지식
+════════════════════════════════════════════ -->
+<div id="tab-knowledge" class="tab-content">
+  <h2 class="section-title">주제 및 배경지식</h2>
+  <p class="section-subtitle">지문과 연계하여 알아두면 좋은 지식들</p>
+
+  <div class="knowledge-card">
+    <h3>주제 요약</h3>
+    <p>이 지문은 <strong>답을 평가하는 사회 시스템(성적 평가)</strong>에 대한 비판적 시각을 제시하며, 질문하는 능력을 더 중요하게 여겨야 한다고 주장합니다. 필자는 학습의 진정한 발전은 "답을 아는 것"이 아닌 "좋은 질문을 던지는 것"에서 온다고 역설합니다.</p>
+    <div class="highlight">📌 핵심 주장: 학습과 앎은 '답'이 아닌 '질문'의 질에 달려 있다.</div>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>소크라테스식 질문법 (Socratic Method)</h3>
+    <p>고대 그리스 철학자 소크라테스는 직접 답을 알려주는 대신, 계속적인 질문을 통해 상대방이 스스로 답에 이르도록 유도했습니다. 이를 <strong>소크라테스식 대화법(elenchus)</strong>이라 하며, 현대 교육에서도 비판적 사고를 기르는 핵심 도구로 재조명받고 있습니다.</p>
+    <ul>
+      <li>단순 암기보다 <strong>개념의 이해와 탐구</strong>를 강조</li>
+      <li>학생이 질문자가 되는 수업 방식 → 자기주도 학습으로 연결</li>
+    </ul>
+    <div class="highlight">🔗 지문 연계: ⑦번 문장 "convened sessions in which questions would be listened to"는 소크라테스식 접근과 맥을 같이함</div>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>현행 교육 시스템 비판 — '정답 중심 교육'의 문제</h3>
+    <p>많은 교육학자들은 현대의 표준화 시험(Standard Tests)이 학생들에게 단일 정답을 찾도록 훈련시킨다고 비판합니다. 이는 창의적 사고와 탐구 능력을 위축시킬 수 있습니다.</p>
+    <ul>
+      <li><strong>Ken Robinson</strong>의 TED 강연 "학교가 창의성을 죽인다(Do Schools Kill Creativity?)"는 이와 같은 맥락</li>
+      <li><strong>프로젝트 기반 학습(PBL)</strong>은 질문 중심 수업의 대안으로 주목</li>
+    </ul>
+    <div class="highlight">🔗 지문 연계: ⑤번 "integrated throughout our entire educational process as grading" — 성적 시스템 비판</div>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>시트콤 Cheers와 Cliff Clavin</h3>
+    <p>미국 시트콤 <em>Cheers</em>(1982~1993)는 보스턴의 한 술집을 배경으로 한 장수 인기 드라마입니다. 극 중 우편배달부 <strong>Cliff Clavin</strong>은 모든 주제에 대해 틀릴지라도 자신 있게 설명하는 캐릭터로, "잘못된 자신감(overconfidence)"을 상징합니다.</p>
+    <div class="highlight">🔗 지문 연계: ①~③ — Cliff를 통해 '답을 모른다고 말하지 못하는' 인간의 본능을 예시로 제시</div>
+  </div>
+
+  <div class="knowledge-card">
+    <h3>수능 연계 — 이 지문의 논리 구조</h3>
+    <p>이 지문은 <strong>문제 제기 → 현 시스템 비판 → 대안 제시 → 필자 주장 강조</strong>의 전형적인 주장·근거(Claim-Evidence) 글쓰기 패턴을 따릅니다.</p>
+    <ul>
+      <li>①~③: 구체적 사례(Cliff) 제시</li>
+      <li>④~⑤: 사회 시스템 비판</li>
+      <li>⑥~⑧: 대안적 가정(What if 가정법)</li>
+      <li>⑨~⑩: 필자의 결론 및 핵심 주장</li>
+    </ul>
+    <div class="highlight">📌 수능 주제 추론 전략: 마지막 두 문장(⑨⑩)에 글의 핵심 주장이 집약되어 있음</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ⑤ 전문해석
+════════════════════════════════════════════ -->
+<div id="tab-translation" class="tab-content">
+  <h2 class="section-title">전문해석</h2>
+  <p class="section-subtitle">자연스러운 한국어 의역</p>
+  <div class="translation-box">
+    당신은 어떤 질문을 해도 항상 답을 가지고 있는 사람을 알고 있는가? 시트콤 <em>Cheers</em>의 우편배달부 Cliff Clavin이 바로 그런 인물이다. 그 드라마에서 Cliff는 "모르겠어"라는 말을 전혀 할 줄 모르는 사람처럼 보였다. Cliff뿐 아니라 현실 속 우리 모두에게도, 답을 제공하려는 이러한 집착은 학습의 어려움과 연결되어 있다. 우리 사회에는 답을 평가하는 것을 목적으로 하는 전체적인 시스템이 존재하기 때문이다. 이 시스템들은 바로 '성적 평가'라는 형태로 우리의 전체 교육 과정에 걸쳐 통합되어 있다. 반면, 만약 우리가 가장 좋은 질문을 평가하는 시스템을 갖고 있다면 어떨까? 만약 우리에게 질문에 귀를 기울이는 회의를 소집하고, 그중 "최고"로 인정받은 질문을 실행에 옮기는 교사와 지도자들이 있다면 어떨까? 이것이 학습의 새로운 가능성을 열고, 학습이 꽃피는 환경을 만들어 줄까? 나는 그럴 것이라고 생각한다. 그러나 우리가 배움과 앎을 주로 "답을 아는 것"과 연결 지어 생각하는 한, 우리는 결코 그 방향으로 나아가지 못할 것이다.
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     ⑥ 변형문제
+════════════════════════════════════════════ -->
+<div id="tab-quiz" class="tab-content">
+  <h2 class="section-title">변형문제</h2>
+  <p class="section-subtitle">객관식 4문항 + 서술형 2문항 · 클릭하여 정답 확인</p>
+
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+
+  <!-- Q1: 주제 추론 -->
+  <div class="quiz-block" id="q1">
+    <div class="quiz-header">
+      <span class="quiz-num">1번</span>
+      <span class="quiz-type">주제 추론</span>
+    </div>
+    <div class="quiz-question">다음 글의 주제로 가장 적절한 것은?</div>
+    <div class="options">
+      <button class="opt-btn" onclick="checkAnswer('q1',this,false,'정답은 ③입니다. 지문은 답을 평가하는 교육 시스템 대신, 질문을 가치 있게 여기는 시스템이 진정한 학습을 가능하게 한다고 주장합니다.')">① 성적 평가 제도의 역사적 발전 과정</button>
+      <button class="opt-btn" onclick="checkAnswer('q1',this,false,'정답은 ③입니다. 지문은 답을 평가하는 교육 시스템 대신, 질문을 가치 있게 여기는 시스템이 진정한 학습을 가능하게 한다고 주장합니다.')">② 시트콤이 교육에 미치는 긍정적 영향</button>
+      <button class="opt-btn" onclick="checkAnswer('q1',this,true,'정답! 지문은 답을 평가하는 현 교육 시스템을 비판하며, 질문을 중시하는 환경이 진정한 학습을 이끈다고 주장합니다.')">③ 질문을 중시하는 교육 환경이 학습에 미치는 긍정적 영향</button>
+      <button class="opt-btn" onclick="checkAnswer('q1',this,false,'정답은 ③입니다. 지문은 답을 평가하는 교육 시스템 대신, 질문을 가치 있게 여기는 시스템이 진정한 학습을 가능하게 한다고 주장합니다.')">④ 자신감 있는 답변이 사회적 신뢰를 형성하는 방법</button>
+      <button class="opt-btn" onclick="checkAnswer('q1',this,false,'정답은 ③입니다. 지문은 답을 평가하는 교육 시스템 대신, 질문을 가치 있게 여기는 시스템이 진정한 학습을 가능하게 한다고 주장합니다.')">⑤ 교육 시스템의 표준화가 사회 발전에 기여하는 이유</button>
+    </div>
+    <div class="feedback" id="q1-fb"></div>
+    <button class="reset-btn" onclick="resetQ('q1')">↺ 다시 풀기</button>
+  </div>
+
+  <!-- Q2: 빈칸 추론 -->
+  <div class="quiz-block" id="q2">
+    <div class="quiz-header">
+      <span class="quiz-num">2번</span>
+      <span class="quiz-type">빈칸 추론</span>
+    </div>
+    <div class="quiz-question">다음 글의 빈칸에 들어갈 말로 가장 적절한 것은?</div>
+    <div class="quiz-passage-ref">
+      But we'll never move in that direction as long as we think learning and knowing have to do primarily with "<span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>."
+    </div>
+    <div class="options">
+      <button class="opt-btn" onclick="checkAnswer('q2',this,false,'정답은 ④입니다. 지문 전체의 핵심은 \"답을 가지는 것\"에 집착하는 태도를 비판하는 것입니다.')">① asking the best questions</button>
+      <button class="opt-btn" onclick="checkAnswer('q2',this,false,'정답은 ④입니다. 지문 전체의 핵심은 \"답을 가지는 것\"에 집착하는 태도를 비판하는 것입니다.')">② qualifying new systems</button>
+      <button class="opt-btn" onclick="checkAnswer('q2',this,false,'정답은 ④입니다. 지문 전체의 핵심은 \"답을 가지는 것\"에 집착하는 태도를 비판하는 것입니다.')">③ convening learning sessions</button>
+      <button class="opt-btn" onclick="checkAnswer('q2',this,true,'정답! 지문 마지막 문장에서 \"having the answers\"를 학습의 핵심으로 여기는 한 변화할 수 없다고 말하므로, 빈칸에는 \"having the answers\"가 들어가야 합니다.')">④ having the answers</button>
+      <button class="opt-btn" onclick="checkAnswer('q2',this,false,'정답은 ④입니다. 지문 전체의 핵심은 \"답을 가지는 것\"에 집착하는 태도를 비판하는 것입니다.')">⑤ grading the students</button>
+    </div>
+    <div class="feedback" id="q2-fb"></div>
+    <button class="reset-btn" onclick="resetQ('q2')">↺ 다시 풀기</button>
+  </div>
+
+  <!-- Q3: 어법 오류 -->
+  <div class="quiz-block" id="q3">
+    <div class="quiz-header">
+      <span class="quiz-num">3번</span>
+      <span class="quiz-type">어법 오류 찾기</span>
+    </div>
+    <div class="quiz-question">다음 글의 밑줄 친 ①~⑤ 중, 어법상 <strong>틀린</strong> 것은?</div>
+    <div class="quiz-passage-ref">
+      Have you ever known someone ①<u>who</u>, no matter what the question is, always has an answer? On the show, Cliff appeared ②<u>to be</u> utterly incapable of ③<u>to say</u> "I don't know." This obsession with providing answers is connected to difficulty in learning. These systems are ④<u>integrated</u> throughout our entire educational process as grading. But we'll never move in that direction as long as we think learning and knowing ⑤<u>have</u> to do primarily with "having the answers."
+    </div>
+    <div class="options">
+      <button class="opt-btn" onclick="checkAnswer('q3',this,false,'정답은 ③입니다. be incapable of 뒤에는 동명사(-ing)가 와야 합니다. to say → saying으로 고쳐야 합니다.')">① who</button>
+      <button class="opt-btn" onclick="checkAnswer('q3',this,false,'정답은 ③입니다. be incapable of 뒤에는 동명사(-ing)가 와야 합니다. to say → saying으로 고쳐야 합니다.')">② to be</button>
+      <button class="opt-btn" onclick="checkAnswer('q3',this,true,'정답! incapable of 다음에는 전치사 of의 목적어로 동명사(-ing)가 와야 합니다. to say → saying으로 수정해야 합니다.')">③ to say</button>
+      <button class="opt-btn" onclick="checkAnswer('q3',this,false,'정답은 ③입니다. be incapable of 뒤에는 동명사(-ing)가 와야 합니다. to say → saying으로 고쳐야 합니다.')">④ integrated</button>
+      <button class="opt-btn" onclick="checkAnswer('q3',this,false,'정답은 ③입니다. be incapable of 뒤에는 동명사(-ing)가 와야 합니다. to say → saying으로 고쳐야 합니다.')">⑤ have</button>
+    </div>
+    <div class="feedback" id="q3-fb"></div>
+    <button class="reset-btn" onclick="resetQ('q3')">↺ 다시 풀기</button>
+  </div>
+
+  <!-- Q4: 내용 불일치 -->
+  <div class="quiz-block" id="q4">
+    <div class="quiz-header">
+      <span class="quiz-num">4번</span>
+      <span class="quiz-type">내용 불일치</span>
+    </div>
+    <div class="quiz-question">다음 글의 내용과 일치하지 <strong>않는</strong> 것은?</div>
+    <div class="options">
+      <button class="opt-btn" onclick="checkAnswer('q4',this,false,'정답은 ⑤입니다. 필자는 질문 중심 시스템이 학습을 번성하게 할 것이라고 긍정적으로 주장합니다.')">① Cliff Clavin은 시트콤 Cheers에 등장하는 우편배달부이다.</button>
+      <button class="opt-btn" onclick="checkAnswer('q4',this,false,'정답은 ⑤입니다. 필자는 질문 중심 시스템이 학습을 번성하게 할 것이라고 긍정적으로 주장합니다.')">② 현재 사회에는 답을 평가하기 위한 시스템이 교육 전반에 통합되어 있다.</button>
+      <button class="opt-btn" onclick="checkAnswer('q4',this,false,'정답은 ⑤입니다. 필자는 질문 중심 시스템이 학습을 번성하게 할 것이라고 긍정적으로 주장합니다.')">③ 필자는 최고의 질문을 평가하는 시스템이 존재하면 좋겠다고 말한다.</button>
+      <button class="opt-btn" onclick="checkAnswer('q4',this,false,'정답은 ⑤입니다. 필자는 질문 중심 시스템이 학습을 번성하게 할 것이라고 긍정적으로 주장합니다.')">④ 답을 제공하려는 집착은 학습의 어려움과 연결된다고 필자는 주장한다.</button>
+      <button class="opt-btn" onclick="checkAnswer('q4',this,true,'정답! 지문에서 필자는 질문 중심 시스템이 학습을 번성하게 할 것이라고 긍정적으로 주장합니다(I say it would). 질문 중심 접근이 학습에 부정적이라는 내용은 없습니다.')">⑤ 필자는 질문 중심의 수업 방식이 학습에 부정적인 영향을 줄 것이라 우려한다.</button>
+    </div>
+    <div class="feedback" id="q4-fb"></div>
+    <button class="reset-btn" onclick="resetQ('q4')">↺ 다시 풀기</button>
+  </div>
+
+  <!-- Subjective 1 -->
+  <div class="subj-block" id="sq1">
+    <div class="quiz-header">
+      <span class="quiz-num">서술형 1</span>
+      <span class="quiz-type">빈칸 요약 완성</span>
+    </div>
+    <div class="quiz-question">
+      다음은 위 글의 핵심 내용을 요약한 문장이다. 빈칸 (A)와 (B)에 들어갈 알맞은 말을 본문에서 찾아 쓰시오.
+    </div>
+    <div class="subj-condition">
+      📋 조건: 본문에서 단어를 그대로 찾아 쓸 것 / 각 빈칸에 1~3단어 이내
+    </div>
+    <div class="quiz-passage-ref">
+      Our current education systems focus on evaluating <span class="blank">&nbsp;(A)&nbsp;</span>, but true learning would flourish if we valued <span class="blank">&nbsp;(B)&nbsp;</span> instead.
+    </div>
+    <textarea class="subj-input-area" placeholder="여기에 (A), (B)의 답을 써 보세요..."></textarea>
+    <br>
+    <button class="toggle-answer-btn" onclick="toggleAnswer('sq1-ans')">모범답안 확인</button>
+    <div class="model-answer" id="sq1-ans">
+      <strong>모범답안</strong><br>
+      (A) answers &nbsp;/&nbsp; (B) questions<br><br>
+      <strong>해설:</strong> 지문에서 현 교육 시스템은 "qualifying answers(답 평가)"에 초점이 맞춰져 있으며(④⑤), 필자는 "qualifying the best questions(최고의 질문 평가)"로 전환해야 진정한 학습이 이루어진다고 주장합니다(⑥⑧).
+    </div>
+  </div>
+
+  <!-- Subjective 2 -->
+  <div class="subj-block" id="sq2">
+    <div class="quiz-header">
+      <span class="quiz-num">서술형 2</span>
+      <span class="quiz-type">내용 기반 영어 서술</span>
+    </div>
+    <div class="quiz-question">
+      다음 질문에 대해 본문의 내용을 바탕으로 완전한 영어 문장으로 답하시오.
+    </div>
+    <div class="subj-condition">
+      📋 조건: 완전한 영어 문장으로 작성 / 본문의 표현을 활용할 것 / 30단어 내외
+    </div>
+    <div class="quiz-passage-ref">
+      According to the author, why can't we move toward a learning-centered direction?
+    </div>
+    <textarea class="subj-input-area" placeholder="여기에 영어로 답을 써 보세요..."></textarea>
+    <br>
+    <button class="toggle-answer-btn" onclick="toggleAnswer('sq2-ans')">모범답안 확인</button>
+    <div class="model-answer" id="sq2-ans">
+      <strong>모범답안</strong><br>
+      We can't move in that direction because we still think learning and knowing have to do primarily with "having the answers," rather than asking meaningful questions.<br><br>
+      <strong>해설:</strong> 지문 마지막 문장 ⑩ "But we'll never move in that direction as long as we think learning and knowing have to do primarily with 'having the answers.'"에서 직접 근거를 찾을 수 있습니다.
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">에듀케레 영수학원의 분석지 · 천일문 독해 에센셜 65 · Questions vs. Answers</div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(function(el){ el.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(el){ el.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    var btns = document.querySelectorAll('.tab-btn');
+    var map = {'tab-passage':0,'tab-analysis':1,'tab-vocab':2,'tab-knowledge':3,'tab-translation':4,'tab-quiz':5};
+    btns[map[id]].classList.add('active');
+  }
+
+  var answered = {};
+
+  function checkAnswer(qid, btn, isCorrect, explanation) {
+    if (answered[qid]) return;
+    answered[qid] = true;
+    var block = document.getElementById(qid);
+    var opts = block.querySelectorAll('.opt-btn');
+    opts.forEach(function(b){ b.disabled = true; });
+    var fb = document.getElementById(qid + '-fb');
+    if (isCorrect) {
+      btn.classList.add('correct');
+      fb.className = 'feedback show correct-fb';
+      fb.innerHTML = '✓ ' + explanation;
+    } else {
+      btn.classList.add('wrong');
+      fb.className = 'feedback show wrong-fb';
+      fb.innerHTML = '✗ ' + explanation;
+      // reveal correct button
+      opts.forEach(function(b){
+        if(b.getAttribute('onclick').indexOf('true') !== -1) {
+          b.classList.add('revealed-correct');
+        }
+      });
+    }
+    updateProgress();
+  }
+
+  function resetQ(qid) {
+    answered[qid] = false;
+    var block = document.getElementById(qid);
+    var opts = block.querySelectorAll('.opt-btn');
+    opts.forEach(function(b){
+      b.disabled = false;
+      b.classList.remove('correct','wrong','revealed-correct');
+    });
+    var fb = document.getElementById(qid + '-fb');
+    fb.className = 'feedback';
+    fb.innerHTML = '';
+    updateProgress();
+  }
+
+  function updateProgress() {
+    var total = 4;
+    var done = Object.keys(answered).filter(function(k){ return answered[k] !== false; }).length;
+    document.getElementById('progress-bar').style.width = Math.round(done/total*100)+'%';
+  }
+
+  function toggleAnswer(id) {
+    var el = document.getElementById(id);
+    el.classList.toggle('show');
+    var btn = el.previousElementSibling;
+    if (el.classList.contains('show')) {
+      btn.textContent = '모범답안 닫기';
+    } else {
+      btn.textContent = '모범답안 확인';
+    }
+  }
+</script>
+</body>
+</html>
